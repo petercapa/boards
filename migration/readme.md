@@ -14,4 +14,4 @@ if you want to create migration command in sync with your model changes, execute
 Once it excuted, migrations table created at the required database
 
 ### Revert migration
-`npm run typeorm migration:revert` \
+`npm run typeorm migration:revert`
