@@ -1,3 +1,4 @@
 /dist
 /node_modules
-/src/env.ts
+.env.local
+.env.dev
