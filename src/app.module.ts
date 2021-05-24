@@ -31,7 +31,6 @@ function getEnvFile(nodeEnv) {
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: getEnvFile(process.env.NODE_ENV),
-      ignoreEnvFile: process.env.NODE_ENV === 'prod',
       validationSchema: Joi.object({
         NODE_ENV: Joi.string().valid('dev', 'prod', 'local').required(),
         HOST: Joi.string().required(),
