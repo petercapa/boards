@@ -12,12 +12,25 @@ import { SnakeNamingStrategy } from 'typeorm-naming-strategies'
 import { Boards } from './boards/boards.entity';
 import * as Joi from 'joi'
 
+function getEnvFile(nodeEnv) {
+  switch (nodeEnv) {
+    case 'dev':
+      return '.env.dev'
+
+    case 'prod':
+      return '.env.prod'
+
+    default:
+      return '.env.local'
+  }
+}
+
 @Module({
   imports: [
     // ENV config
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.local',
+      envFilePath: getEnvFile(process.env.NODE_ENV),
       ignoreEnvFile: process.env.NODE_ENV === 'prod',
       validationSchema: Joi.object({
         NODE_ENV: Joi.string().valid('dev', 'prod', 'local').required(),
