@@ -1,20 +1,15 @@
-import { ConnectionOptions } from 'typeorm';
-
-const config: ConnectionOptions = {
+module.exports = {
     type: 'mysql',
     host: process.env.HOST,
     port: Number(process.env.PORT),
     username: process.env.USERNAME,
     password: process.env.PASSWORD,
     database: process.env.DB_NAME,
-    entities: [__dirname + '/**/*.entity{.ts,.js}'],
     synchronize: false,
     migrationsRun: false,
     logging: false,
-    migrations: [__dirname + '/migration/*{.ts,.js}'],
+    migrations: [__dirname + '/versions/*{.ts,.js}'],
     cli: {
-        migrationsDir: 'migration'
+        migrationsDir: 'migration/versions'
     }
-};
-
-export = config;
+}

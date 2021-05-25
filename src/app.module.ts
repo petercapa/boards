@@ -12,7 +12,6 @@ import { BoardsModule } from './boards/boards.module';
 // import { Boards } from './boards/boards.entity';
 import * as Joi from 'joi'
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies'
-import { DatabaseModule } from './database/database.module';
 
 function getEnvFile(nodeEnv) {
   switch (nodeEnv) {
@@ -59,8 +58,7 @@ function getEnvFile(nodeEnv) {
       namingStrategy: new SnakeNamingStrategy()
   }),
     UsersModule,
-    BoardsModule,
-    DatabaseModule
+    BoardsModule
   ],
   controllers: [AppController],
   providers: [AppService]
