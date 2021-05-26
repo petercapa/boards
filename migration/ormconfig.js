@@ -8,7 +8,12 @@ module.exports = {
     synchronize: false,
     migrationsRun: false,
     logging: false,
+    entities: ["../src/**/*.entity{.ts,.js}"],
     migrations: [__dirname + '/versions/*{.ts,.js}'],
+    migrationsTableName: "migrations",
+    extra: {
+        autoCommit: false,
+    },
     cli: {
         migrationsDir: 'migration/versions'
     }
