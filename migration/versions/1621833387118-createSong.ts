@@ -1,7 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, Transaction} from "typeorm";
 
 export class createSong1621833387118 implements MigrationInterface {
-
     public async up(queryRunner: QueryRunner): Promise<void> {
         try {
             await queryRunner.createTable(new Table({

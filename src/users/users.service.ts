@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Users } from './users.entity';
+import { Users } from '../entities/users.entity';
 import { hash } from 'bcrypt'
-import { Comments } from '../comments/comments.entity';
+import { Comments } from '../entities/comments.entity';
 
 @Injectable()
 export class UsersService {
@@ -31,8 +31,7 @@ export class UsersService {
   }
 
   async update(user): Promise<Users> {
-
-    return await this.userRepository.save({ id: user.id, email: user.email });
+    return await this.userRepository.save(user);
   }
 
   async getComments(id: number): Promise<Comments[]> {

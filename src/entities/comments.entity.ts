@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { Boards } from 'src/boards/boards.entity';
-import { Users } from 'src/users/users.entity';
+import { Boards } from 'src/entities/boards.entity';
+import { Users } from 'src/entities/users.entity';
 
 @ObjectType()
 @Entity()

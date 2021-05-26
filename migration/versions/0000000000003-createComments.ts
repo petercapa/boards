@@ -11,6 +11,7 @@ export class createComments0000000000003 implements MigrationInterface {
                         name: "id",
                         type: "int",
                         isPrimary: true,
+                        isGenerated: true,
                         generationStrategy: "increment"
                     },
                     {

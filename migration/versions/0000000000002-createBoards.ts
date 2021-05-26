@@ -12,6 +12,7 @@ export class createBoard0000000000002 implements MigrationInterface {
                         type: "int",
                         isPrimary: true,
                         isNullable: false,
+                        isGenerated: true,
                         generationStrategy: "increment"
                     },
                     {

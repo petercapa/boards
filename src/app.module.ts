@@ -1,15 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { GraphQLModule } from '@nestjs/graphql';
 import { UsersModule } from './users/users.module';
 import { BoardsModule } from './boards/boards.module';
-// import { Users } from './users/users.entity';
-// import { Comments } from './comments/comments.entity';
-// import { SnakeNamingStrategy } from 'typeorm-naming-strategies'
-// import { Boards } from './boards/boards.entity';
+import { Users, Comments, Boards } from './entities';
 import * as Joi from 'joi'
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies'
 
@@ -49,14 +46,18 @@ function getEnvFile(nodeEnv) {
       username: process.env.USERNAME,
       password: process.env.PASSWORD,
       database: process.env.DB_NAME,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      migrationsTableName: 'migration',
-      migrations: ["src/migration/*.ts"],
-      cli: {
-          migrationsDir: 'src/migrations',
-      },
+      entities: [
+        Users,
+        Comments,
+        Boards
+      ],
       namingStrategy: new SnakeNamingStrategy()
-  }),
+    }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: true,
+      debug: true,
+      playground: true,
+    }),
     UsersModule,
     BoardsModule
   ],

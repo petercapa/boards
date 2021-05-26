@@ -1,5 +1,5 @@
 import { Resolver, Query, Args, Int, ResolveField, Parent, Mutation } from '@nestjs/graphql';
-import { Boards } from './boards.entity';
+import { Boards } from '../entities/boards.entity';
 import { BoardsService } from './boards.service';
 // import { CreateUserInput } from './createUserInput';
 // import { UpdateUserInput } from './updateUserInput';

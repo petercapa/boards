@@ -13,6 +13,7 @@ export class createUsers0000000000001 implements MigrationInterface {
                         type: "int",
                         isPrimary: true,
                         isNullable: false,
+                        isGenerated: true,
                         generationStrategy: "increment"
                     },
                     {

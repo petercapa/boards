@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Boards } from './boards.entity';
-import { Comments } from '../comments/comments.entity';
+import { Boards } from '../entities/boards.entity';
+import { Comments } from '../entities/comments.entity';
 
 @Injectable()
 export class BoardsService {

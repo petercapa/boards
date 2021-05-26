@@ -6,7 +6,7 @@ export class addNicknameToUsers1621936046576 implements MigrationInterface {
         try {
             await queryRunner.addColumn('users', new TableColumn({
                 name: "nickname",
-                type: "int",
+                type: "varchar",
                 isUnique: true,
                 isNullable: false
             }))

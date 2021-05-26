@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { Boards } from 'src/boards/boards.entity';
-import { Comments } from 'src/comments/comments.entity';
+import { Boards } from 'src/entities/boards.entity';
+import { Comments } from 'src/entities/comments.entity';
 
 @ObjectType()
 @Entity()
@@ -11,11 +11,11 @@ export class Users {
     id: number;
 
     @Field()
-    @Column('text')
+    @Column('varchar')
     email: string;
 
     @Field()
-    @Column('text')
+    @Column('varchar')
     password: string;
 
     @Field()
@@ -29,6 +29,10 @@ export class Users {
     @Field()
     @Column('tinyint', { default: 0 })
     is_deleted: number;
+
+    @Field()
+    @Column('varchar')
+    nickname: string;
 
     // @Field(() => [Boards])
     // @OneToMany(() => Boards, board => board.id)
