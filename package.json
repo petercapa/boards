@@ -13,7 +13,7 @@
     "start:local": "NODE_ENV=local nest start",
     "start:dev": "NODE_ENV=dev nest start --watch",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm",
-    "migrate:create": "node --require ts-node/register ./node_modules/typeorm/cli.js --config migration/ormconfig.js migration:create",
+    "migrate:generate:local": "NODE_ENV=local TYPE=generate node ./migration/main.js",
     "migrate:up:local": "NODE_ENV=local TYPE=run node ./migration/main.js",
     "migrate:up:dev": "NODE_ENV=dev TYPE=run node ./migration/main.js",
     "migrate:down:local": "NODE_ENV=local TYPE=revert node ./migration/main.js",

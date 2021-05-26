@@ -26,6 +26,10 @@ export class Boards {
   @UpdateDateColumn()
   updated_at: Date;
 
+  @Field()
+  @Column()
+  test: string;
+
   @ManyToOne(() => Users, user => user.id)
   users: Users;
 

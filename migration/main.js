@@ -13,9 +13,9 @@ async function bootstrap() {
   
   // Required statement: migration type can be either "run" or "revert"
   let stm = `node --require ts-node/register ./node_modules/typeorm/cli.js --config migration/ormconfig.js migration:${process.env.TYPE} `
-  if (process.env.TYPE === "create") {
+  if (process.env.TYPE === "generate") {
     // TODO: change the file name at your convenience
-    stm = stm + '-n time'
+    stm = `node --require ts-node/register ./node_modules/typeorm/cli.js -- --config migration/ormconfig.js migration:${process.env.TYPE} --name generation`
   }
 
   // Run migration command

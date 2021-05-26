@@ -7,7 +7,7 @@ module.exports = {
     database: process.env.DB_NAME,
     synchronize: false,
     migrationsRun: false,
-    logging: false,
+    logging: true,
     entities: ["../src/entities/*.entity{.ts,.js}"],
     migrations: [__dirname + '/versions/*{.ts,.js}'],
     migrationsTableName: "migrations",
@@ -15,6 +15,7 @@ module.exports = {
         autoCommit: false,
     },
     cli: {
+        entitiesDir: 'src/entities',
         migrationsDir: 'migration/versions'
     }
 }
