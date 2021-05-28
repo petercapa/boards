@@ -29,7 +29,7 @@ mutation updateUser {
   }
 }
 ```
-You can update either `email` or `nickname` or both. Once you update single field, return param is to be the required updating field
+You can update either `email` or `nickname` or both. Once you update single field, return param is to be the required updating field. otherwise, error is returning as you mentioned the non-updated field to return
 
 
 
